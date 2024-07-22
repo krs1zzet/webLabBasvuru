@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haber Derleyici</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div id="nav-links">
+                <ul>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-newspaper"></i> Haber Derleyici</h1>
+            <p>En güncel haberleri arayın ve keşfedin</p>
+        </header>
+        <div class="search-bar">
+            <input type="text" id="query" placeholder="Başlık ara...">
+            <input type="date" id="date">
+            <button onclick="searchNews()"><i class="fas fa-search"></i> Ara</button>
+        </div>
+        <div id="loading-message" class="loading-message">Aranıyor...</div>
+        <div id="news-container" class="news-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
