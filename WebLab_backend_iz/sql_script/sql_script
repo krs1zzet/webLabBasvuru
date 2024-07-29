@@ -1,0 +1,32 @@
+USE `new_schema`;
+
+DROP TABLE IF EXISTS `authorities`;
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `username` varchar(50) NOT NULL,
+    `password` varchar(50) NOT NULL,
+    `enabled` tinyint NOT NULL DEFAULT 1,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `username_idx` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `authorities` (
+    `username` varchar(50) NOT NULL,
+    `authority` varchar(50) NOT NULL,
+    UNIQUE KEY `authorities_idx_1` (`username`,`authority`),
+    CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `users`
+VALUES
+('1','john','{noop}test123',1),
+('2','mary','{noop}test123',1),
+('3','susan','{noop}test123',1);
+
+INSERT INTO `authorities`
+VALUES
+('john','ROLE_USER'),
+('mary','ROLE_USER'),
+('susan','ROLE_USER');
